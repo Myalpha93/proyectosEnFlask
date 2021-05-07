@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url_for('product.home')}}">Flask <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            CRUD
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ url_for('product.home')}}">Productos</a>
+            <a class="dropdown-item" href="{{ url_for('category.home')}}">Categorias</a>
+            <div class="dropdown-divider"></div>
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        
+        {% if current_user.username %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Hola {{current_user.username}}
+            </a>
+            <div class="dropdown-menu dropdown-menu-left " aria-labelledby="navbarDropdown">
+              <a class="dropdown-item " href="{{ url_for('fauth.logout')}}">Perfil </a>
+              <a class="dropdown-item " href="{{ url_for('fauth.logout')}}">Logout </a>
+              
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('fauth.login')}}">Login </a>
+          </li>
+        {% endif %}
+        
+      </ul>
+  
+    </div>
+  </nav>

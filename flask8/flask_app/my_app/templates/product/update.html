@@ -1,0 +1,11 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+    
+<form action="{{url_for('product.update', id=product.id)}}" method="POST">
+    {% include 'product/_form.html' %} 
+
+    <input class="btn btn-outline-success btn-block"   type="submit" value="Actualizar">
+</form>
+{% endblock %}
+    

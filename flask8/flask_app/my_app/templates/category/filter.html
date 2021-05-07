@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle</title>
+</head>
+<body>
+    <h3>{{product['name']}}</h3>
+    <h3>{{product['category']}}</h3>
+    <h3>{{product['price']}}</h3>
+    <h3>Filtro default: {{product['price'] | default('Sin precio')}}</h3>
+    {{"<h1>Hola</h1>" | safe}}
+  <!--  {{"<script>alert()</script>" | safe}} --> 
+
+  {{"Esto es la descripcion larga de todo el mundo" | truncate(23)}}
+    <br>
+  {{"Esto es la descripcion larga de todo el mundo" | count}}
+  <br>
+  {{"70.8" | float}}
+  <br>
+  {{70 | float}}
+  <br>
+  {{"70.8" | int}}
+  <br>
+  {{71.5 | int}}
+  <br>
+  {{71.53123123123123 | round(1)}}
+  <br>
+  {{["Iphone","Ipad"] | join(",")}}
+  <br>
+  {{["Iphone","Ipad"] | length}}
+  <br>
+  {{ {'offer':False,'price':40.3,'k':'holis'} | tojson}}
+  <br>
+  Filtro global {{50 | mydouble}}
+  <br>
+  Filtro global {{product | iva}}
+</body>
+</html>
